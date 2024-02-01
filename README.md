@@ -1,5 +1,7 @@
 # Identification of distinct immune signatures in Inclusion Body Myositis by peripheral blood immunophenotyping using machine learning models 
-https://zenodo.org/badge/649966793.svg
+
+[![DOI](https://zenodo.org/badge/649966793.svg)](https://zenodo.org/doi/10.5281/zenodo.10605850)
+
 Identification of relevant biomarkers for Inclusion Body Myositis by peripheral blood immunophenotyping using machine learning models.
 
 # Background:
