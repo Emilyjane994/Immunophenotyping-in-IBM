@@ -236,325 +236,6 @@ demographic <- grid.arrange(plot1, plot2, plot3, plot4, nrow = 2, ncol = 2)
 
 
 
-#CD4 T cells 
-boxplot.CD4Naive <- cluster.IB[, c("cluster", "CD4Naive")]
-boxplot.CD4EM <- cluster.IB[, c("cluster", "CD4EM")]
-boxplot.CD4CD57 <- cluster.IB[, c("cluster", "CD4CD57")]
-boxplot.CD4KLRG1 <- cluster.IB[, c("cluster", "CD4KLRG1")]
-
-boxplot.CD4.CD27. <- cluster.IB[, c("cluster", "CD4.CD27.")]
-boxplot.CD4.CD28. <- cluster.IB[, c("cluster", "CD4.CD28.")]
-boxplot.CD4.Tbet <- cluster.IB[, c("cluster", "CD4.Tbet")]
-boxplot.CD4.Perf <- cluster.IB[, c("cluster", "CD4.Perf")]
-boxplot.CD4.IFNg.Perf. <- cluster.IB[, c("cluster", "CD4.IFNg.Perf.")]
-
-
-#CD8 T cells 
-boxplot.CD8Naive <- cluster.IB[, c("cluster", "CD8Naive")]
-boxplot.CD8CD57 <- cluster.IB[, c("cluster", "CD8CD57")]
-boxplot.CD8KLRG1 <- cluster.IB[, c("cluster", "CD8KLRG1")]
-boxplot.CD8.CD27. <- cluster.IB[, c("cluster", "CD8.CD27.")]
-boxplot.CD8.CD28. <- cluster.IB[, c("cluster", "CD8.CD28.")]
-boxplot.CD8.Perf <- cluster.IB[, c("cluster", "CD8.Perf")]
-boxplot.CD8.IFNg.Perf. <- cluster.IB[, c("cluster", "CD8.IFNg.Perf.")]
-
-#Tregs
-boxplot.TregFoxP3 <- cluster.IB[, c("cluster", "TregFoxP3")]
-boxplot.TregKI67. <- cluster.IB[, c("cluster", "TregKI67")]
-boxplot.NaiveTreg <- cluster.IB[, c("cluster", "NaiveTreg")]
-
-#Gamma delta T cells 
-
-
-boxplot.dataVd1CD27 <- cluster.IB[, c("cluster", "Vd1CD27.")]
-boxplot.dataVd1Cx3Cr1 <- cluster.IB[, c("cluster","Vd1Cx3Cr1")]
-boxplot.dataVd2CD57 <- cluster.IB[, c("cluster", "Vd2CD57.")]
-boxplot.dataVd1CD57 <- cluster.IB[, c("cluster", "Vd1CD57")]
-boxplot.dataVd2Vg9<- cluster.IB[, c("cluster", "Vd2.Vg9.")]
-
-
-
-#####CD4 populations 
-
-
-
-plot12 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD4Naive,
-  x = cluster,
-  y = CD4Naive,
-  color = group,
-  title = "CD4Naive Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-plot12
-
-plot13 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD4EM,
-  x = cluster,
-  y = CD4EM,
-  color = group,
-  title = "CD4EM Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-plot13
-
-plot10 <- ggstatsplot::ggbetweenstats(
-  data = boxplot.CD4CD57,
-  x = cluster,
-  y = CD4CD57,
-  color = group,
-  title = "CD4CD57 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-plot10
-
-plot11 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD4KLRG1,
-  x = cluster,
-  y = CD4KLRG1,
-  color = group,
-  title = "CD4KLRG1 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-plot11
-
-plot15 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD4.CD28.,
-  x = cluster,
-  y = CD4.CD28.,
-  color = group,
-  title = "CD4CD28- Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-plot15
-
-plot14 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD4.CD27.,
-  x = cluster,
-  y = CD4.CD27.,
-  color = group,
-  title = "CD4CD27- Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-plot14
-
-
-
-
-plot16 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD4.Tbet,
-  x = cluster,
-  y = CD4.Tbet,
-  color = group,
-  title = "CD4Tbet Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-
-plot17 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD4.Perf,
-  x = cluster,
-  y = CD4.Perf,
-  color = group,
-  title = "CD4Perf Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-plot18 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD4.IFNg.Perf.,
-  x = cluster,
-  y = CD4.IFNg.Perf.,
-  color = group,
-  title = "CD4IFNg+Perf+ Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-CD4pop <- grid.arrange(plot10, plot11, plot12, plot13, plot14, nrow = 2, ncol = 3)
-CD4pop2 <- grid.arrange(plot14, plot15, plot16, plot17, plot18, nrow = 2, ncol = 3)
-
-
-#####CD8 populations 
-plot19<-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD8CD57,
-  x = cluster,
-  y = CD8CD57,
-  color = group,
-  title = "CD8CD57 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-plot20 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD8KLRG1,
-  x = cluster,
-  y = CD8KLRG1,
-  color = group,
-  title = "CD8KLRG1 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-plot20
-
-
-plot21 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD8Naive,
-  x = cluster,
-  y = CD8Naive,
-  color = group,
-  title = "CD8Naive Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-
-plot22 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD8.CD27.,
-  x = cluster,
-  y = CD8.CD27.,
-  color = group,
-  title = "CD8CD27- Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-plot22
-
-plot23 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD8.CD28.,
-  x = cluster,
-  y = CD8.CD28.,
-  color = group,
-  title = "CD8CD28- Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-plot23
-
-plot24 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD8.Perf,
-  x = cluster,
-  y = CD8.Perf,
-  color = group,
-  title = "CD8Perf Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-plot24
-
-plot25 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.CD8.IFNg.Perf.,
-  x = cluster,
-  y = CD8.IFNg.Perf.,
-  color = group,
-  title = "CD8IFNg+Perf+ Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-plot25
-
-CD8pop <- grid.arrange(plot19, plot20, plot21, plot22, nrow = 2, ncol = 2)
-CD8pop2 <- grid.arrange( plot23, plot24, plot25, nrow = 2, ncol = 2)
-
-#Tregs cells 
-plot26 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.TregFoxP3,
-  x = cluster,
-  y = TregFoxP3,
-  color = group,
-  title = "TregFoxP3 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-plot27 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.TregKI67.,
-  x = cluster,
-  y = TregKI67,
-  color = group,
-  title = "TregKI67. Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-plot28 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.NaiveTreg,
-  x = cluster,
-  y = NaiveTreg,
-  color = group,
-  title = "NaiveTreg Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-Tregpop <- grid.arrange(plot26, plot27, plot28, nrow = 2, ncol = 2)
-
-
-############TCRgd %############
-
-
-plot5 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.dataVd1CD27,
-  x = cluster,
-  y = Vd1CD27.,
-  color = group,
-  title = "Vd1CD27 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-plot6 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.dataVd1Cx3Cr1,
-  x = cluster,
-  y = Vd1Cx3Cr1,
-  color = group,
-  title = "Vd1Cx3Cr1 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-plot7 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.dataVd2CD57,
-  x = cluster,
-  y = Vd2CD57.,
-  color = group,
-  title = "Vd2CD57 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-plot8 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.dataVd2Vg9,
-  x = cluster,
-  y = Vd2.Vg9.,
-  color = group,
-  title = "Vd2vg9 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-plot9 <-ggstatsplot::ggbetweenstats(
-  data = boxplot.dataVd1CD57,
-  x = cluster,
-  y = Vd1CD57,
-  color = group,
-  title = "Vd1CD57 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-# Arrange plots on a grid
-TCRgd <- grid.arrange(plot5, plot6, plot7, plot8, plot9, nrow = 2, ncol = 3)
-
-
-
-#make a table of all the median/min/max values 
-
-#### get median and min/max values 
-
-# Specify the variables for which you want to calculate medians
-variables <- c("CD4", "CD4Naive", "CD4EM", "CD4CD57", "CD4KLRG1", "CD4.CD28.", "CD4.CD27.", "CD4.Tbet", "CD4.Perf", "CD4.IFNg.Perf.","CD8", "CD8Naive", "CD8CD57", "CD8KLRG1", "CD8.CD28.", "CD8.CD27.", "CD8.Perf", "CD8.IFNg.Perf.", "NaiveTreg", "TregFoxP3", "TregKI67", "Vd1CD27.", "Vd1Cx3Cr1", "Vd1CD57", "Vd2.Vg9.", "Vd2CD57.")
-
-# Calculate medians for each variable based on 'Pathology'
-list_median <- aggregate(df[, variables], by = list(Pathology = df$Pathology), FUN = median)
-
-list_median
-
-my_list_median <- aggregate(cbind(Age, NOY,	 CD4Naive,CD4EM,CD4CD57,	CD4KLRG1, CD4.CD28., CD4.CD27.,CD4.Tbet, CD4.Perf, CD4.IFNg.Perf.,		CD8Naive,	CD8CD57,	CD8KLRG1, CD8.CD28.,CD8.CD27., CD8.Perf, CD8.IFNg.Perf.,NaiveTreg,TregFoxP3, TregKI67,  Vd1CD27., Vd1Cx3Cr1,Vd1CD57,Vd2.Vg9.,Vd2CD57.)~cluster,cluster.IB,median)
-
-my_list_min <- aggregate(cbind(Age, NOY, CD4Naive,CD4EM,CD4CD57,	CD4KLRG1, CD4.CD28., CD4.CD27.,CD4.Tbet, CD4.Perf, CD4.IFNg.Perf.,		CD8Naive,	CD8CD57,	CD8KLRG1, CD8.CD28.,CD8.CD27., CD8.Perf, CD8.IFNg.Perf.,NaiveTreg,TregFoxP3, TregKI67, Vd1CD27., Vd1Cx3Cr1,Vd1CD57,Vd2.Vg9.,Vd2CD57.)~cluster,cluster.IB,min)
-
-my_list_max <- aggregate(cbind(Age, NOY, CD4Naive,CD4EM,CD4CD57,	CD4KLRG1, CD4.CD28., CD4.CD27.,CD4.Tbet, CD4.Perf, CD4.IFNg.Perf.,		CD8Naive,	CD8CD57,	CD8KLRG1, CD8.CD28.,CD8.CD27., CD8.Perf, CD8.IFNg.Perf.,NaiveTreg,TregFoxP3, TregKI67, Vd1CD27., Vd1Cx3Cr1,Vd1CD57,Vd2.Vg9.,Vd2CD57.)~cluster,cluster.IB,max)
-
-#melt the df
-
-melt_df <- t(my_list_median)
-melt_df2 <- t(my_list_min)
-melt_df3 <- t(my_list_max)
-
-melt_df2
-
-
-melt_df <- as.data.frame(melt_df,colnames = c("cluster 1","cluster 2","cluster 3"))
-
-melt_df2 <- as.data.frame(melt_df2,col.names = c("cluster 1","cluster 2","cluster 3"))
-
-melt_df3 <- as.data.frame(melt_df3,col.names = c("cluster 1","cluster 2","cluster 3"))
-
-
 library(xlsx)
 write.xlsx(melt_df, "3 cluster_median.xlsx", row.names = FALSE)
 write.xlsx(melt_df2, "3 cluster_min.xlsx", row.names = FALSE)
@@ -563,14 +244,14 @@ write.xlsx(melt_df3, "3 cluster_max.xlsx", row.names = FALSE)
 library(openxlsx)
 
 MTUG <- read.xlsx("clinical data all_de-identified.xlsx", sheet = "mTUG")
-QMT <- read.xlsx("clinical data all.xlsx", sheet = "QMT")
-EAT10 <- read.xlsx("clinical data all.xlsx", sheet = "EAT10")
-FRS<- read.xlsx("clinical data all.xlsx", sheet = "FRS")
-MWT<- read.xlsx("clinical data all.xlsx", sheet = "2MWT")
-QMTscores<- read.xlsx("clinical data all.xlsx", sheet = "QMT scores")
-QMTadd <- read.xlsx("clinical data all.xlsx", sheet = "QMT add")
-NOY <- read.xlsx("clinical data all.xlsx", sheet = "NOY")
-Age <- read.xlsx("clinical data all.xlsx", sheet = "Age")
+QMT <- read.xlsx("clinical data all_de-identified.xlsx", sheet = "QMT add")
+EAT10 <- read.xlsx("clinical data all_de-identified.xlsx", sheet = "EAT10")
+FRS<- read.xlsx("clinical data all_de-identified.xlsx", sheet = "FRS")
+MWT<- read.xlsx("clinical data all_de-identified.xlsx", sheet = "2MWT")
+QMTscores<- read.xlsx("clinical data all_de-identified.xlsx", sheet = "QMT scores")
+QMTadd <- read.xlsx("clinical data all_de-identified.xlsx", sheet = "QMT add")
+NOY <- read.xlsx("clinical data all_de-identified.xlsx", sheet = "NOY")
+Age <- read.xlsx("clinical data all_de-identified.xlsx", sheet = "Age")
   
   
 boxplot.mTUG <- MTUG[, c("cluster", "mTUG.score")]
@@ -583,10 +264,11 @@ boxplot.FRS$cluster <- factor(boxplot.FRS$cluster, levels = c(1, 2, 3), labels =
 boxplot.MWT <- MWT[, c("cluster", "MWT")]
 boxplot.MWT$cluster <- factor(boxplot.MWT$cluster, levels = c(1, 2, 3), labels = c("Cluster 1", "Cluster 2", "Cluster 3"))
 
-boxplot.QMTscores <- QMTscores[, c("cluster", "average.qmt.scores")]
+
 boxplot.QMTadd <- QMTadd[, c("cluster", "average.hand.grip")]
 boxplot.QMTadd$cluster <- factor(boxplot.QMTadd$cluster, levels = c(1, 2, 3), labels = c("Cluster 1", "Cluster 2", "Cluster 3"))
-boxplot.QMTadd2 <- QMTadd[, c("cluster", "average.knee.extension")]
+
+boxplot.QMTadd2 <- QMT[, c("cluster", "average.knee.extension")]
 boxplot.QMTadd2$cluster <- factor(boxplot.QMTadd2$cluster, levels = c(1, 2, 3), labels = c("Cluster 1", "Cluster 2", "Cluster 3"))
 
 boxplot.NOY <- NOY[, c("clusterNo", "NOY")]
@@ -595,391 +277,297 @@ boxplot.NOY$clusterNo <- factor(boxplot.NOY$clusterNo, levels = c(1, 2, 3), labe
 boxplot.Age <- Age[, c("clusterNo", "Age")]
 boxplot.Age$clusterNo <- factor(boxplot.Age$clusterNo, levels = c(1, 2, 3), labels = c("Cluster 1", "Cluster 2", "Cluster 3"))
 
-ggstatsplot::ggbetweenstats(
-  data = boxplot.QMTadd2,
-  x = cluster,
-  y = average.knee.extension,
-  color = group,
-  title = "average.knee.extension Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm", results.subtitle =FALSE)
+
+
+# Load the dplyr library for data manipulation
+library(dplyr)
+library(stats)
+library(dunn.test)
+
+
+# Perform Shapiro-Wilk normality test for mTUG scores in each cluster
+mtug_shapiro <- boxplot.mTUG %>%
+  summarise(
+    shapiro_stat = shapiro.test(mTUG.score)$statistic,
+    shapiro_p_value = shapiro.test(mTUG.score)$p.value
+  )
+print(mtug_shapiro)
+
+# Perform Shapiro-Wilk normality test for QMT hand grip scores in each cluster
+QMT_hand_shapiro <- boxplot.QMTadd %>%
+  summarise(
+    shapiro_stat = shapiro.test(average.hand.grip)$statistic,
+    shapiro_p_value = shapiro.test(average.hand.grip)$p.value
+  )
+
+print(QMT_hand_shapiro)
+
+
+# Perform Shapiro-Wilk normality test for  average knee extension scores in each cluster
+QMT_knee_shapiro <- boxplot.QMTadd2 %>%
+  summarise(
+    shapiro_stat = shapiro.test(average.knee.extension)$statistic,
+    shapiro_p_value = shapiro.test(average.knee.extension)$p.value
+  )
+
+print(QMT_knee_shapiro)
+
+# Perform Shapiro-Wilk normality test for EAT10 scores in each cluster
+EAT10_shapiro <- boxplot.EAT10 %>%
+  summarise(
+    shapiro_stat = shapiro.test(EAT10)$statistic,
+    shapiro_p_value = shapiro.test(EAT10)$p.value
+  )
+
+print(EAT10_shapiro)
+
+# Perform Shapiro-Wilk normality test for EAT10 scores in each cluster
+FRS_shapiro <- boxplot.FRS %>%
+  summarise(
+    shapiro_stat = shapiro.test(IBM.FRS.Total.Score.)$statistic,
+    shapiro_p_value = shapiro.test(IBM.FRS.Total.Score.)$p.value
+  )
+
+print(FRS_shapiro)
+
+# Perform Shapiro-Wilk normality test for EAT10 scores in each cluster
+MWT_shapiro <- boxplot.MWT %>%
+  summarise(
+    shapiro_stat = shapiro.test(MWT)$statistic,
+    shapiro_p_value = shapiro.test(MWT)$p.value
+  )
+
+print(MWT_shapiro)
+
+# Perform Shapiro-Wilk normality test for Age scores in each cluster
+Age_shapiro <- boxplot.Age %>%
+  summarise(
+    shapiro_stat = shapiro.test(Age)$statistic,
+    shapiro_p_value = shapiro.test(Age)$p.value
+  )
+
+print(Age_shapiro)
+
+# Perform Shapiro-Wilk normality test for NOY (disease duration-number of years) scores in each cluster
+
+NOY_shapiro <- boxplot.NOY %>%
+  summarise(
+    shapiro_stat = shapiro.test(NOY)$statistic,
+    shapiro_p_value = shapiro.test(NOY)$p.value
+  )
+
+print(NOY_shapiro)
+
+
+# Perform Kruskal-Wallis test
+kruskal_res <- kruskal.test(mTUG.score ~ cluster, data = boxplot.mTUG)
+dunn_res <- dunn.test(boxplot.mTUG$mTUG.score, boxplot.mTUG$cluster, method="holm")
+
+Knee_kruskal_res <- kruskal.test(average.knee.extension ~ cluster, data = boxplot.QMTadd2)
+Knee_dunn_res <- dunn.test(boxplot.QMTadd2$average.knee.extension, boxplot.QMTadd2$cluster, method="holm")
+
+Eat10_kruskal_res <- kruskal.test(EAT10 ~ cluster, data = boxplot.EAT10)
+EAT10_dunn_res <- dunn.test(boxplot.EAT10$EAT10, boxplot.EAT10$cluster, method="holm")
+
+FRS_kruskal_res <- kruskal.test(IBM.FRS.Total.Score. ~ cluster, data = boxplot.FRS)
+FRS_dunn_res <- dunn.test(boxplot.FRS$IBM.FRS.Total.Score., boxplot.FRS$cluster, method="holm")
+
+FRS_kruskal_res <- kruskal.test(IBM.FRS.Total.Score. ~ cluster, data = boxplot.FRS)
+FRS_dunn_res <- dunn.test(boxplot.FRS$IBM.FRS.Total.Score., boxplot.FRS$cluster, method="holm")
+
+MWT_kruskal_res <- kruskal.test(MWT ~ cluster, data = boxplot.MWT)
+MWT_dunn_res <- dunn.test(boxplot.MWT$MWT, boxplot.MWT$cluster, method="holm")
+
+Age_kruskal_res <- kruskal.test(Age ~ clusterNo, data = boxplot.Age)
+Age_dunn_res <- dunn.test(boxplot.Age$Age, boxplot.Age$clusterNo, method="holm")
+
+NOY_kruskal_res <- kruskal.test(NOY ~ clusterNo, data = boxplot.NOY)
+NOY_dunn_res <- dunn.test(boxplot.NOY$NOY, boxplot.NOY$clusterNo, method="holm")
+
+
+
+#two outcome measures passes shapiro-wilk normality test. now we test for homogeneity of variance using levene's test. 
+# Conduct Levene's Test for Homogeneity of Variances
+library(car)
+
+FRS_levene <- leveneTest(IBM.FRS.Total.Score. ~ cluster, data = boxplot.FRS)
+print(FRS_levene)
+
+hand_grip_levene <- leveneTest(average.hand.grip ~ cluster, data = boxplot.QMTadd)
+print(hand_grip_levene)
+
+#Levene's test passed for both outcome measures. we can now perform ANOVA 
+
+# Perform ANOVA
+FRS_aov_res <- aov(IBM.FRS.Total.Score. ~ factor(cluster), data = boxplot.FRS)
+summary(FRS_aov_res)
+FRS_Tukey_res <- TukeyHSD(FRS_aov_res)
+print(FRS_Tukey_res)
+
+hand_aov_res <- aov(average.hand.grip ~ factor(cluster), data = boxplot.QMTadd)
+summary(hand_aov_res)
+hand_Tukey_res <- TukeyHSD(hand_aov_res)
+print(hand_Tukey_res)
+
+
 
 library(ggplot2)
-
-
 
 boxplot.QMTadd$cluster <- factor(boxplot.QMTadd$cluster, levels = c(1, 2, 3), labels = c("Cluster 1", "Cluster 2", "Cluster 3"))
 
 
-knee <- ggplot(data = boxplot.QMTadd2, aes(x = cluster, y = average.knee.extension, fill = factor(cluster))) +
-  geom_point() +
+knee2 <- ggplot(data = boxplot.QMTadd2, aes(x = cluster, y = average.knee.extension, fill = factor(cluster))) +
+  geom_boxplot(width = 0.3, alpha = 0.6, outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.25), alpha = 0.6) +
   scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
   theme_bw(base_size = 12) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         axis.text.y = element_text(family = "serif", face = "bold")) +
-  geom_violin(trim = FALSE) +
-  geom_boxplot(width = 0.07) +
   stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
-  stat_summary(fun = "median", geom = "text", hjust = -0.5, aes(label = sprintf("%.2f", ..y..)), size = 3) +
-  scale_y_continuous(breaks = seq(-50, 350, by = 50)) +
+  scale_y_continuous(breaks = seq(0, 300, by = 20)) +
   theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
   theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
   theme(legend.title = element_blank(), legend.position = 'none') +
-  labs(title = "", x = "", y = expression(bold("Average Knee Extension"), size = 12)) +
+  labs(title = "", x = "", y = expression(bold("Average Knee Extension"), size = 10)) +
   theme(text = element_text(family = "serif"))
 
-knee
+knee2
 
-
-hand.grip <- ggplot(data = boxplot.QMTadd, aes(x = cluster, y = average.hand.grip, fill = factor(cluster))) +
-  geom_point() +
+hand.grip2 <- ggplot(data = boxplot.QMTadd, aes(x = cluster, y = average.hand.grip, fill = factor(cluster))) +
+  geom_boxplot(width = 0.3, alpha = 0.6, outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.25), alpha = 0.6) +
   scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
   theme_bw(base_size = 12) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         axis.text.y = element_text(family = "serif", face = "bold")) +
-  geom_violin(trim = FALSE) +
-  geom_boxplot(width = 0.07) +
   stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
-  stat_summary(fun = "median", geom = "text", hjust = -0.5, aes(label = sprintf("%.2f", ..y..)), size = 3) + theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
-  theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
-  theme(legend.title = element_blank(), legend.position = 'none') +
-  labs(title = "", x = "", y = expression(bold("Average Hand Grip"), size = 12)) +
-  theme(text = element_text(family = "serif"))
-
-hand.grip
-
-mTUG <- ggplot(data = boxplot.mTUG, aes(x = cluster, y =mTUG.score, fill = factor(cluster))) +
-  geom_point() +
-  scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
-  theme_bw(base_size = 12) +
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        axis.text.y = element_text(family = "serif", face = "bold")) +
-  geom_violin(trim = FALSE) +
-  geom_boxplot(width = 0.07) +
-  stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
-  stat_summary(fun = "median", geom = "text", hjust = -0.5, aes(label = sprintf("%.2f", ..y..)), size = 3) +
-  scale_y_continuous(breaks = seq(0, 90, by = 10)) +
+  scale_y_continuous(breaks = seq(0, 300, by = 20)) +
   theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
   theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
   theme(legend.title = element_blank(), legend.position = 'none') +
-  labs(title = "", x = "", y = expression(bold("mTUG Score"), size = 10)) +
+  labs(title = "", x = "", y = expression(bold("Average hand grip"), size = 10)) +
   theme(text = element_text(family = "serif"))
 
-mTUG
+hand.grip2
 
+
+mTUG2 <- ggplot(data = boxplot.mTUG, aes(x = cluster, y = mTUG.score, fill = factor(cluster))) +
+  geom_boxplot(width = 0.3, alpha = 0.6, outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.25), alpha = 0.6) +
+  scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
+  theme_bw(base_size = 12) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        axis.text.y = element_text(family = "serif", face = "bold")) +
+  stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
+  scale_y_continuous(breaks = seq(0, 100, by = 10)) +
+  theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
+  theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
+  theme(legend.title = element_blank(), legend.position = 'none') +
+  labs(title = "", x = "", y = expression(bold("mTUG (seconds)"), size = 10)) +
+  theme(text = element_text(family = "serif"))
+
+
+mTUG2
 
 EAT10 <- ggplot(data = boxplot.EAT10, aes(x = cluster, y = EAT10, fill = factor(cluster))) +
-  geom_point() +
+  geom_boxplot(width = 0.3, alpha = 0.6, outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.25), alpha = 0.6) +
   scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
   theme_bw(base_size = 12) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         axis.text.y = element_text(family = "serif", face = "bold")) +
-  geom_violin(trim = FALSE) +
-  geom_boxplot(width = 0.07) +
   stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
-  stat_summary(fun = "median", geom = "text", hjust = -0.5, aes(label = sprintf("%.2f", ..y..)), size = 3) +  scale_y_continuous(breaks = seq(-10, 50, by = 10)) + 
+  scale_y_continuous(breaks = seq(0, 40, by = 5)) +
   theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
   theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
   theme(legend.title = element_blank(), legend.position = 'none') +
-  labs(title = "", x = "", y = expression(bold("EAT10 Score"), size = 12)) +
+  labs(title = "", x = "", y = expression(bold("EAT10 Score"), size = 10)) +
   theme(text = element_text(family = "serif"))
 
 EAT10
 
 
-
-
-FRS<- ggplot(data = boxplot.FRS, aes(x = cluster, y = IBM.FRS.Total.Score., fill = factor(cluster))) +
-  geom_point() +
+FRS2 <- ggplot(data = boxplot.FRS, aes(x = cluster, y = IBM.FRS.Total.Score., fill = factor(cluster))) +
+  geom_boxplot(width = 0.3, alpha = 0.6, outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.25), alpha = 0.6) +
   scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
   theme_bw(base_size = 12) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         axis.text.y = element_text(family = "serif", face = "bold")) +
-  geom_violin(trim = FALSE) +
-  geom_boxplot(width = 0.07) +
   stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
-  stat_summary(fun = "median", geom = "text", hjust = -0.5, aes(label = sprintf("%.2f", ..y..)), size = 3) +theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
-  theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
-  theme(legend.title = element_blank(), legend.position = 'none') +
-  labs(title = "", x = "", y = expression(bold("Functional Rating Scale Score"), size = 12)) +
-  theme(text = element_text(family = "serif"))
-
-FRS
-
-MWT<- ggplot(data = boxplot.MWT, aes(x = cluster, y = MWT, fill = factor(cluster))) +
-  geom_point() +
-  scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
-  theme_bw(base_size = 12) +
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        axis.text.y = element_text(family = "serif", face = "bold")) +
-  geom_violin(trim = FALSE) +
-  geom_boxplot(width = 0.07) +
-  stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
-  stat_summary(fun = "median", geom = "text", hjust = -0.5, aes(label = sprintf("%.2f", ..y..)), size = 3) +theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
-  theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
-  theme(legend.title = element_blank(), legend.position = 'none') +
-  labs(title = "", x = "", y = expression(bold("2MWT (Seconds)")), size = 12) +
-  theme(text = element_text(family = "serif"))
-MWT
-
-
-NOY <- ggplot(data = boxplot.NOY, aes(x = clusterNo, y = NOY, fill = factor(clusterNo))) +
-  geom_point() +
-  scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
-  theme_bw(base_size = 12) +
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        axis.text.y = element_text(family = "serif", face = "bold")) +
-  geom_violin(trim = FALSE) +
-  geom_boxplot(width = 0.07) +
-  stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
-  stat_summary(fun = "median", geom = "text", hjust = -0.5, aes(label = sprintf("%.2f", ..y..)), size = 3)+ theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
-  theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
-  theme(legend.title = element_blank(), legend.position = 'none') +
-  labs(title = "", x = "", y = expression(bold("Disease Duration (Years)")), size = 12) +
-  theme(text = element_text(family = "serif"))
-
-NOY
-
-
-
-library(dplyr)
-library(tidyverse)
-
-# Count the number of subjects in each group
-group_counts <- boxplot.QMTadd %>%
-  count(cluster)
-
-group_counts
-
-group_counts <- boxplot.QMTadd2 %>%
-  count(cluster)
-
-group_counts
-
-ag <- ggplot(data = boxplot.Age, aes(x = clusterNo, y = Age, fill = clusterNo)) +
-  geom_point() +
-  scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
-  theme_bw(base_size = 12) +
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-  geom_violin(trim = FALSE) +
-  geom_boxplot(width = 0.07) +
-  stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
-  stat_summary(fun = "median", geom = "text", hjust = -0.5, aes(label = sprintf("%.2f", ..y..)), size = 3) +
+  scale_y_continuous(breaks = seq(20, 40, by = 5), limits = c(20, 40)) + # Explicitly set limits
   theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
   theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
   theme(legend.title = element_blank(), legend.position = 'none') +
-  labs(title = "", x = "", y = expression(bold("Age (Years)")), size = 12) +
+  labs(title = "", x = "", y = expression(bold("Functional Rating Scale Score"), size = 10)) +
   theme(text = element_text(family = "serif"))
 
-# Display the plot
-ag
+FRS2
+
+
+MWT2 <- ggplot(data = boxplot.MWT, aes(x = cluster, y = MWT, fill = factor(cluster))) +
+  geom_boxplot(width = 0.3, alpha = 0.6, outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.25), alpha = 0.6) +
+  scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
+  theme_bw(base_size = 12) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        axis.text.y = element_text(family = "serif", face = "bold")) +
+  stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
+  scale_y_continuous(breaks = seq(0, 300, by = 20)) +
+  theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
+  theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
+  theme(legend.title = element_blank(), legend.position = 'none') +
+  labs(title = "", x = "", y = expression(bold("2MWT (seconds)"), size = 10)) +
+  theme(text = element_text(family = "serif"))
+
+MWT2
+
+
+NOY2 <- ggplot(data = boxplot.NOY, aes(x = clusterNo, y = NOY, fill = factor(clusterNo))) +
+  geom_boxplot(width = 0.3, alpha = 0.6, outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.25), alpha = 0.6) +
+  scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
+  theme_bw(base_size = 12) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        axis.text.y = element_text(family = "serif", face = "bold")) +
+  stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
+  scale_y_continuous(breaks = seq(0, 50, by = 5)) +
+  theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
+  theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
+  theme(legend.title = element_blank(), legend.position = 'none') +
+  labs(title = "", x = "", y = expression(bold("Disease Duration(years)"), size = 10)) +
+  theme(text = element_text(family = "serif"))
+
+NOY2
+
+
+Age2 <- ggplot(data = boxplot.Age, aes(x = clusterNo, y = Age, fill = factor(clusterNo))) +
+  geom_boxplot(width = 0.3, alpha = 0.6, outlier.shape = NA) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.25), alpha = 0.6) +
+  scale_fill_manual(values = c("#6699CC", "#CC6666", "#FF9999")) +
+  theme_bw(base_size = 12) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        axis.text.y = element_text(family = "serif", face = "bold")) +
+  stat_summary(fun = "median", geom = "point", shape = 21, size = 1.5, fill = "black") +
+  scale_y_continuous(breaks = seq(0, 100, by = 10)) +
+  theme(axis.text.x = element_text(angle = 0, vjust = 0.6, family = "serif", face = "bold", size = 12)) +
+  theme(axis.text.y = element_text(angle = 0, vjust = 0.2, family = "serif", face = "bold", size = 12, margin = margin(0, 5, 0, 0))) +
+  theme(legend.title = element_blank(), legend.position = 'none') +
+  labs(title = "", x = "", y = expression(bold("Age (years)"), size = 10)) +
+  theme(text = element_text(family = "serif"))
+
+Age2
 
 
 
 # Arrange the plots with equal heights
-clinical <- grid.arrange(ag, NOY, MWT, FRS,  EAT10, mTUG, hand.grip, knee, nrow = 2, ncol = 4)
+clinical <- grid.arrange(Age2, NOY2, MWT2, FRS2,  EAT102, mTUG2, hand.grip2, knee2, nrow = 2, ncol = 4)
 
 clinical
 
 facet_grid()
 
 
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.QMTadd,
-  x = cluster,
-  y = average.hand.grip,
-  color = group,
-  title = "average.hand.grip Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm", results.subtitle =FALSE)
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.QMTscores,
-  x = cluster,
-  y = average.qmt.scores,
-  color = group,
-  title = "average.qmt.scores Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm", results.subtitle =FALSE)
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.mTUG ,
-  x = cluster,
-  y = mTUG.score,
-  color = group,
-  title = "mTUG.scoreBox Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm", results.subtitle =FALSE) +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        axis.line = element_line(size = 0.5),
-        axis.text = element_text(family = "serif", size = 12, face = "bold")) +
-  coord_cartesian(ylim = c(0, 65)) +
-  scale_y_continuous(breaks = seq(0, 65, 5))
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.EAT10,
-  x = cluster,
-  y = EAT10,
-  color = group,
-  title = "EAT10 Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm", results.subtitle =FALSE) +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        axis.line = element_line(size = 0.5),
-        axis.text = element_text(family = "serif", size = 12, face = "bold")) +
-  coord_cartesian(ylim = c(0, 40)) +
-  scale_y_continuous(breaks = seq(0, 40, 5))
-
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.FRS,
-  x = cluster,
-  y = IBM.FRS.Total.Score.,
-  color = group,
-  title = "FRS Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm", results.subtitle =FALSE) +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        axis.line = element_line(size = 0.5),
-        axis.text = element_text(family = "serif", size = 12, face = "bold")) +
-  coord_cartesian(ylim = c(0, 50)) +
-  scale_y_continuous(breaks = seq(0, 50, 5))
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.MWT, 
-  x = cluster,
-  y = MWT,
-  color = group,
-  title = "2MWT Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm", results.subtitle =FALSE) +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        axis.line = element_line(size = 0.5),
-        axis.text = element_text(family = "serif", size = 12, face = "bold")) +
-  coord_cartesian(ylim = c(0, 200)) +
-  scale_y_continuous(breaks = seq(0, 200, 20))
-
-
-#QMT UPPER BODY
-boxplot.shoulder_elevators_R <- QMT[, c("cluster", "shoulder_elevators_R")]
-boxplot.shoulder_elevators_L <- QMT[, c("cluster", "shoulder_elevators_L")]
-boxplot.Shoulder_Abductors_R <- QMT[, c("cluster", "Shoulder_Abductors_R")]
-boxplot.Shoulder_Abductors_L<- QMT[, c("cluster", "Shoulder_Abductors_L")]
-boxplot.Elbow_Flexors_R <- QMT[, c("cluster", "Elbow_Flexors_R")]
-boxplot.Elbow_Flexors_L <- QMT[, c("cluster", "Elbow_Flexors_L")]
-boxplot.Wrist_Extensors_R <- QMT[, c("cluster", "Wrist_Extensors_R")]
-boxplot.Wrist_Extensors_L <- QMT[, c("cluster", "Wrist_Extensors_L")]
-boxplot.Wrist_Flexors_R <- QMT[, c("cluster", "Wrist_Flexors_R")]
-boxplot.Wrist_Flexors_L <- QMT[, c("cluster", "Wrist_Flexors_L")]
-boxplot.Hand_Grip_R <- QMT[, c("cluster", "Hand_Grip_R")]
-boxplot.Hand_Grip_L <- QMT[, c("cluster", "Hand_Grip_L")]
-
-
-#example for the clean plot
-plot2 <- ggstatsplot::ggbetweenstats(
-  data = boxplot.NOY,
-  x = cluster,
-  y = NOY,
-  color = group,
-  title = "NOY Box Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm", results.subtitle =FALSE
-) +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        axis.line = element_line(size = 0.5),
-        axis.text = element_text(family = "serif", size = 12, face = "bold")) +
-  coord_cartesian(ylim = c(0, 35)) +
-  scale_y_continuous(breaks = seq(0, 35, 5))
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.shoulder_elevators_L, 
-  x = cluster,
-  y = shoulder_elevators_L,
-  color = group,
-  title = "shoulder_elevators_L Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.Shoulder_Abductors_R, 
-  x = cluster,
-  y = Shoulder_Abductors_R,
-  color = group,
-  title = "Shoulder_Abductors_RPlot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.Shoulder_Abductors_L, 
-  x = cluster,
-  y = Shoulder_Abductors_L,
-  color = group,
-  title = "Shoulder_Abductors_L Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.Elbow_Flexors_L, 
-  x = cluster,
-  y = Elbow_Flexors_L,
-  color = group,
-  title = "Elbow_Flexors_ L Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.Elbow_Flexors_R, 
-  x = cluster,
-  y = Elbow_Flexors_R,
-  color = group,
-  title = "Elbow_Flexors_ R Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.Elbow_Flexors_R, 
-  x = cluster,
-  y = Elbow_Flexors_R,
-  color = group,
-  title = "Elbow_Flexors_ R Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.Wrist_Flexors_L, 
-  x = cluster,
-  y = Wrist_Flexors_L,
-  color = group,
-  title = "Wrist_Flexors_L Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.Wrist_Flexors_R, 
-  x = cluster,
-  y = Wrist_Flexors_R,
-  color = group,
-  title = "Wrist_Flexors_R Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.Hand_Grip_L, 
-  x = cluster,
-  y = Hand_Grip_L,
-  color = group,
-  title = "Hand_Grip_L Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-ggstatsplot::ggbetweenstats(
-  data = boxplot.Hand_Grip_R, 
-  x = cluster,
-  y = Hand_Grip_R,
-  color = group,
-  title = "Hand_Grip_R Plot",
-  subtitle = "Grouped by cluster", type="nonparametric", comparisons_correction = "holm")
-
-
-
-
-#QMT LOWER BODY
-boxplot.Knee_Extensors_R <- QMT[, c("cluster", "Knee_Extensors_R")]
-boxplot.Knee_Extensors_L <- QMT[, c("cluster", "Knee_Extensors_L")]
-boxplot.Ankle_Dorsiflexors_R <- QMT[, c("cluster", "Ankle_Dorsiflexors_R")]
-boxplot.Ankle_Dorsiflexors_L <- QMT[, c("cluster", "Ankle_Dorsiflexors_L")]
 
 
 
